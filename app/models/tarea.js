@@ -2,6 +2,7 @@ module.exports = (sequelize, Sequelize) => {
     const Tarea = sequelize.define("tarea", {
         id_tarea: {
             type: Sequelize.INTEGER,
+            autoIncrement: true,
             primaryKey: true
         },
         id_proyecto: {

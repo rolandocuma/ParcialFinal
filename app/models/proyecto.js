@@ -2,6 +2,7 @@ module.exports = (sequelize, Sequelize) => {
     const Proyecto = sequelize.define("proyecto", {
         id_proyecto: {
             type: Sequelize.INTEGER,
+            autoIncrement: true,
             primaryKey: true
         },
         id_usuario: {
