@@ -5,7 +5,7 @@ exports.create = (req, res) => {
     let usuario = {};
 
     try {
-        usuario.id_usuario=reg.body.id_usuario;
+        usuario.id_usuario=req.body.id_usuario;
         usuario.nombre = req.body.nombre;
         usuario.correo = req.body.correo;
         usuario.contraseña = req.body.contraseña;
