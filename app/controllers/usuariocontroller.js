@@ -1,4 +1,4 @@
-const db = require('../config/db.config.js');
+const db = require('../config/db.config.js'); // Asegúrate de ajustar la ruta según tu estructura de archivos
 const Usuario = db.Usuario;
 
 exports.create = (req, res) => {
@@ -6,12 +6,9 @@ exports.create = (req, res) => {
 
     try {
         usuario.nombre = req.body.nombre;
-        usuario.apellido = req.body.apellido;
-        usuario.email = req.body.email;
-        usuario.telefono = req.body.telefono;
-        usuario.direccion = req.body.direccion;
+        usuario.correo = req.body.correo;
+        usuario.contraseña = req.body.contraseña;
         usuario.fecha_registro = req.body.fecha_registro;
-        usuario.estado = req.body.estado;
 
         Usuario.create(usuario).then(result => {
             res.status(200).json({
@@ -76,12 +73,9 @@ exports.updateById = async (req, res) => {
         } else {    
             let updatedObject = {
                 nombre: req.body.nombre,
-                apellido: req.body.apellido,
-                email: req.body.email,
-                telefono: req.body.telefono,
-                direccion: req.body.direccion,
-                fecha_registro: req.body.fecha_registro,
-                estado: req.body.estado
+                correo: req.body.correo,
+                contraseña: req.body.contraseña,
+                fecha_registro: req.body.fecha_registro
             };
             let result = await Usuario.update(updatedObject, { returning: true, where: { id_usuario: usuarioId } });
             
@@ -129,3 +123,4 @@ exports.deleteById = async (req, res) => {
         });
     }
 };
+

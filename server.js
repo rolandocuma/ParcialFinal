@@ -4,6 +4,8 @@ const cors = require('cors');
 const db = require('./app/config/db.config.js');
 
 const usuarioRouter = require ('./app/routers/router.js')
+const proyectoRouter = require ('./app/routers/router.js')
+const tareaRouter = require ('./app/routers/router.js')
 
 
 const app = express();
@@ -22,6 +24,8 @@ db.sequelize.sync({ force: false }).then(() => {
 
 
 app.use('/', usuarioRouter);
+app.use('/', proyectoRouter);
+app.use('/', tareaRouter);
 
 
 app.get("/", (req, res) => {
