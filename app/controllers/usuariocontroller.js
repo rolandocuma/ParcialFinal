@@ -1,10 +1,11 @@
-const db = require('../config/db.config.js'); // Asegúrate de ajustar la ruta según tu estructura de archivos
+const db = require('../config/db.config.js'); 
 const Usuario = db.Usuario;
 
 exports.create = (req, res) => {
     let usuario = {};
 
     try {
+        usuario.id_usuario=reg.body.id_usuario;
         usuario.nombre = req.body.nombre;
         usuario.correo = req.body.correo;
         usuario.contraseña = req.body.contraseña;
